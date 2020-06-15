@@ -1,5 +1,5 @@
 import * as React from 'react';
-import InputFieldParser from './InputFieldParser'
+import inputFieldParser from "./InputFieldParser";
 
 interface Props {
     value: string;
@@ -23,7 +23,7 @@ class InputField extends React.Component<Props, State> {
         this.setState({
             value: event.currentTarget.value
         })
-        InputFieldParser.parse(event.currentTarget.value.toLocaleLowerCase());
+        inputFieldParser(event.currentTarget.value.toLocaleLowerCase());
 
     };
 
