@@ -1,4 +1,4 @@
-const inputFieldParser: (input: string) => void = (input: string) => {
+const inputFieldParser = (input: string) : void => {
     // TODO try to use regexp
     while (input !== '') {
         switch (input.charAt(0)) {
