@@ -1,5 +1,4 @@
 import {addIngredient} from "../Actions/AddIngridientAction";
-import {Store} from "redux"
 
 const inputFieldParser = (input: string) : void => {
     // TODO try to use regexp
