@@ -1,10 +1,15 @@
+import {addIngredient} from "../Actions/AddIngridientAction";
+import {Store} from "redux"
+
 const inputFieldParser = (input: string) : void => {
     // TODO try to use regexp
+
     while (input !== '') {
         switch (input.charAt(0)) {
             case 'b' :
-                console.log('tomato');
+                console.log('Tomato');
                 input = input.slice(1, input.length);
+                addIngredient('Tomato');
                 break;
             case 'u' :
                 console.log('Cheese');

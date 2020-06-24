@@ -1,5 +1,5 @@
 import * as React from 'react';
-import inputFieldParser from "./InputFieldParser";
+import inputFieldParser from "../Components/InputFieldParser";
 
 interface Props {
     value: string;
