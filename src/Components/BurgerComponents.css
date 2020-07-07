@@ -1,5 +1,6 @@
 .burger {
-    display: flex;
+    display: block;
+    margin: 0 auto;
     flex-direction: column;
     width: fit-content;
 }
