@@ -59,6 +59,7 @@ class InputField extends React.Component<Props, State> {
             <input
                 type='text'
                 value={this.state.value}
+                placeholder={"Hamburger"}
                 onChange={this.handleChange}/>
         );
     }
