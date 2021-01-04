@@ -1,6 +1,6 @@
-const inputFieldParser = (input: string) : string[] => {
+const inputFieldParser = (input: string): string[] => {
     // TODO try to use regexp
-    let ingredients : string[] = [];
+    let ingredients: string[] = [];
     while (input !== '') {
         switch (input.charAt(0)) {
             case 'b' :

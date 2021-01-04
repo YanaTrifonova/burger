@@ -21,7 +21,7 @@ export function BurgerReducer(state = initialState, action: AddIngredientAction 
             }
             return {ingredients: newQueue};
         case 'REMOVE_ALL_INGREDIENTS':
-            return {ingredients : new Queue<string>()}
+            return {ingredients: new Queue<string>()}
         default:
             return state;
     }

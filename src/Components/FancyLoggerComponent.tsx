@@ -36,7 +36,8 @@ class FancyLogger extends React.Component<Props, State> {
             <code id="fancyLogger">
                 <h1>Logger</h1>
                 <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>Hello user!</p>
-                <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>This app is based on this meme
+                <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>This app is based
+                    on this meme
                     video from Youtube</p>
                 <iframe
                     title="youtubeVideo"
@@ -49,7 +50,8 @@ class FancyLogger extends React.Component<Props, State> {
                 </iframe>
                 {logger.length !== 0
                     ? logger.map((l) => {
-                        return <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>{l}</p>
+                        return <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>{l}
+                        </p>
                     })
                     : null}
             </code>

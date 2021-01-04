@@ -32,7 +32,7 @@ class Burger extends React.Component<Props, State> {
         this.setState({burgerParts: ReduxState.getState().burger.ingredients.toArray()})
     }
 
-    render() : JSX.Element {
+    render(): JSX.Element {
         let key = 0;
         let burgerElements;
 

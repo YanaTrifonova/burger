@@ -1,3 +1,3 @@
 export interface FancyLoggerState {
-    text : string[]
+    text: string[]
 }
