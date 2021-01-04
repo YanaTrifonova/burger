@@ -10,7 +10,7 @@ import BottomBun from '../Images/BottomBun.png';
 import EmptyBurger from '../Images/EmptyBurger.jpg';
 import ReduxState from '../Store/Store';
 
-import './BurgerComponents.css'
+import './BurgerComponent.css'
 import {RemoveAllIngredientsAction} from "../Actions/RemoveAllIngredientsAction";
 
 interface Props {
