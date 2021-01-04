@@ -8,6 +8,7 @@ import Cheese from '../Images/Cheese.png';
 import MeatPatty from '../Images/MeatPatty.png';
 import BottomBun from '../Images/BottomBun.png';
 import EmptyBurger from '../Images/EmptyBurger.jpg';
+import ReduxState from '../Store/Store';
 
 import './BurgerComponents.css'
 import {RemoveAllIngredientsAction} from "../Actions/RemoveAllIngredientsAction";
@@ -23,12 +24,12 @@ interface State {
 class Burger extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        this.state = {burgerParts: this.props.store.getState().burger.ingredients.toArray()};
+        this.state = {burgerParts: ReduxState.getState().burger.ingredients.toArray()};
         this.props.store.subscribe(this.fetchState.bind(this));
     }
 
     fetchState = () => {
-        this.setState({burgerParts: this.props.store.getState().burger.ingredients.toArray()})
+        this.setState({burgerParts: ReduxState.getState().burger.ingredients.toArray()})
     }
 
     render() : JSX.Element {

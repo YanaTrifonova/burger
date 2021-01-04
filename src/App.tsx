@@ -5,15 +5,14 @@ import InputField from './Components/InputField';
 import Burger from './Components/BurgerComponent';
 
 import './App.css';
-import configureStore from "./Store/Store";
+import store from "./Store/Store";
 
 function App() {
-    const store = configureStore();
     return (
         <div className="App">
             <Provider store={store}>
                 <InputField value={''} store={store}/>
-                <Burger store={store}></Burger>
+                <Burger store={store}/>
             </Provider>
         </div>
     );

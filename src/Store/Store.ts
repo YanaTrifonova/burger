@@ -1,10 +1,16 @@
-import {rootReducer} from "../Reducer/RootReducer"
-import {applyMiddleware, createStore} from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
+import {BurgerReducer} from '../Reducer/BurgerReducer';
 import loggerMiddleware from "../Middleware/LoggerMiddleware";
 
-export default function configureStore() {
-    const middlewares = [loggerMiddleware]
-    const middlewareEnhancer = applyMiddleware(...middlewares)
+const rootReducer = combineReducers({
+    burger: BurgerReducer,
+});
 
-    return createStore(rootReducer, undefined, middlewareEnhancer);
-}
+const middlewares = [loggerMiddleware] ;
+const middlewareEnhancer = applyMiddleware(...middlewares)
+
+const store = createStore(rootReducer, undefined, middlewareEnhancer);
+
+export default store;
+
+export type ReduxState = ReturnType<typeof rootReducer>;
