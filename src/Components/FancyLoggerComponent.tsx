@@ -48,6 +48,8 @@ class FancyLogger extends React.Component<Props, State> {
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen><span className="time">{new Date(Date.now()).toUTCString()}</span>
                 </iframe>
+                <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>Here is source
+                    code: <a href="https://github.com/YanaTrifonova/burger">GitHub</a></p>
                 {logger.length !== 0
                     ? logger.map((l) => {
                         return <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>{l}
