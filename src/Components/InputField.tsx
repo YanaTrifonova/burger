@@ -5,15 +5,20 @@ import {BurgerState} from "../State/BurgerState";
 import {connect, ConnectedProps} from "react-redux";
 import {CombinedState, Store} from "redux";
 import {RemoveAllIngredientsAction} from "../Actions/RemoveAllIngredientsAction";
+import {FancyLoggerState} from "../State/FancyLoggerState";
+import {InputWatcherAction} from "../Actions/InputWatcherAction";
 
+import './inputField.css'
 
-const mapState = (state: BurgerState) => ({
-    ingredients: state.ingredients
+const mapState = (state: BurgerState, fancyLogger: FancyLoggerState) => ({
+    ingredients: state.ingredients,
+    text: fancyLogger.text
 })
 
 const mapDispatch = {
     addIngredient: (ingredient: string) => ({type: 'ADD_INGREDIENT', ingredient: ingredient}),
-    removeAllIngredients: () => ({type: 'REMOVE_ALL_INGREDIENTS'})
+    removeAllIngredients: () => ({type: 'REMOVE_ALL_INGREDIENTS'}),
+    inputWatcher: (text: string) => ({type: "INPUT_CHANGED", text: text})
 }
 
 const connector = connect(
@@ -26,7 +31,7 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 type Props = PropsFromRedux &
     {
         value: string;
-        store: Store<CombinedState<{ burger: BurgerState }>, AddIngredientAction | RemoveAllIngredientsAction>
+        store: Store<CombinedState<{ fancyLogger: FancyLoggerState }>, InputWatcherAction> | Store<CombinedState<{ burger: BurgerState }>, AddIngredientAction | RemoveAllIngredientsAction>
     }
 
 interface State {
@@ -46,11 +51,13 @@ class InputField extends React.Component<Props, State> {
         this.setState({
             value: event.currentTarget.value
         })
-
         this.props.removeAllIngredients();
+
+        this.props.inputWatcher(event.currentTarget.value.toLocaleLowerCase());
 
         inputFieldParser(event.currentTarget.value.toLocaleLowerCase()).forEach((elem) => {
             this.props.addIngredient(elem);
+
         });
     };
 
@@ -58,6 +65,7 @@ class InputField extends React.Component<Props, State> {
         return (
             <input
                 type='text'
+                className="input"
                 value={this.state.value}
                 placeholder={"Hamburger"}
                 onChange={this.handleChange}/>

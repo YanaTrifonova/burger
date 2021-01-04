@@ -1,0 +1,9 @@
+.time {
+    margin-right: 10px;
+}
+
+.text {
+    text-align: left;
+    border-bottom: 2px solid dimgrey;
+    padding-bottom: 10px;
+}
