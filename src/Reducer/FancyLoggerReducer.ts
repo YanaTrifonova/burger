@@ -11,7 +11,7 @@ export function FancyLoggerReducer(state = initialState, action: InputWatcherAct
     switch (action.type) {
         case "INPUT_CHANGED" : {
             return {
-                text: [...state.text, action.text]
+                text: [action.text, ...state.text]
             };
         }
 
