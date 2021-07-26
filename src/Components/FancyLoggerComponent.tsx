@@ -20,8 +20,14 @@ class FancyLogger extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {text: ReduxState.getState().fancyLogger.text};
+    }
+
+    componentDidMount() {
         this.props.store.subscribe(this.fetchState.bind(this));
     }
+
+    // todo unsubscribe
+    componentWillUnmount() {}
 
     fetchState = () => {
         this.setState({text: ReduxState.getState().fancyLogger.text})
@@ -36,8 +42,9 @@ class FancyLogger extends React.Component<Props, State> {
             <code id="fancyLogger">
                 <h1>Logger</h1>
                 {logger.length !== 0
-                    ? logger.map((l) => {
-                        return <p className="text"><span className="time">{new Date(Date.now()).toUTCString()}</span>{l}
+                    ? logger.map((item, index) => {
+                        return <p className="text" key={index}><span
+                            className="time">{new Date(Date.now()).toUTCString()}</span>{item}
                         </p>
                     })
                     : null}

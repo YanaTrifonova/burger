@@ -57,7 +57,6 @@ class InputField extends React.Component<Props, State> {
 
         inputFieldParser(event.currentTarget.value.toLocaleLowerCase()).forEach((elem) => {
             this.props.addIngredient(elem);
-
         });
     };
 

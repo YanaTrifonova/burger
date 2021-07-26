@@ -25,8 +25,14 @@ class Burger extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {burgerParts: ReduxState.getState().burger.ingredients.toArray()};
+    }
+
+    componentDidMount() {
         this.props.store.subscribe(this.fetchState.bind(this));
     }
+
+    // todo unsubscribe
+    componentWillUnmount() {}
 
     fetchState = () => {
         this.setState({burgerParts: ReduxState.getState().burger.ingredients.toArray()})
